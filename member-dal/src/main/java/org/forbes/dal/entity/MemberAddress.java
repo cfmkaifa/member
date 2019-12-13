@@ -1,51 +1,23 @@
 package org.forbes.dal.entity;
 
-import java.util.Date;
+import com.baomidou.mybatisplus.annotation.TableName;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+import javax.validation.constraints.Pattern;
 
 /**
  * Table: f_member_address
  */
 @Data
+@ApiModel(description="地址信息")
+@EqualsAndHashCode(callSuper = false)
+@TableName("f_member_address")
 public class MemberAddress extends BaseEntity {
-    /**
-     * id
-     * Table:     f_member_address
-     * Column:    id
-     * Nullable:  false
-     */
-    private Long id;
 
-    /**
-     * Table:     f_member_address
-     * Column:    create_by
-     * Nullable:  true
-     */
-    private String createBy;
-
-    /**
-     * 创建时间
-     * Table:     f_member_address
-     * Column:    create_time
-     * Nullable:  true
-     */
-    private Date createTime;
-
-    /**
-     * 更新人
-     * Table:     f_member_address
-     * Column:    update_by
-     * Nullable:  true
-     */
-    private String updateBy;
-
-    /**
-     * 更新时间
-     * Table:     f_member_address
-     * Column:    update_time
-     * Nullable:  true
-     */
-    private Date updateTime;
+    private static final long serialVersionUID = -2425478923407804604L;
 
     /**
      * 会员id
@@ -61,6 +33,7 @@ public class MemberAddress extends BaseEntity {
      * Column:    consignee
      * Nullable:  true
      */
+    @ApiModelProperty(value = "收货人",required = true)
     private String consignee;
 
     /**
@@ -68,6 +41,7 @@ public class MemberAddress extends BaseEntity {
      * Column:    province
      * Nullable:  true
      */
+    @ApiModelProperty(value = "省",required = true)
     private String province;
 
     /**
@@ -75,6 +49,7 @@ public class MemberAddress extends BaseEntity {
      * Column:    city
      * Nullable:  true
      */
+    @ApiModelProperty(value = "市",required = true)
     private String city;
 
     /**
@@ -82,6 +57,7 @@ public class MemberAddress extends BaseEntity {
      * Column:    area
      * Nullable:  true
      */
+    @ApiModelProperty(value = "区",required = true)
     private String area;
 
     /**
@@ -90,6 +66,7 @@ public class MemberAddress extends BaseEntity {
      * Column:    address
      * Nullable:  true
      */
+    @ApiModelProperty(value = "详细地址",required = true)
     private String address;
 
     /**
@@ -106,6 +83,8 @@ public class MemberAddress extends BaseEntity {
      * Column:    phone
      * Nullable:  true
      */
+    @ApiModelProperty("电话")
+    @Pattern(regexp ="^[1][3,4,5,7,8][0-9]{9}$")
     private String phone;
 
     /**
@@ -114,5 +93,5 @@ public class MemberAddress extends BaseEntity {
      * Column:    is_default
      * Nullable:  true
      */
-    private Long isDefault;
+    private String isDefault;
 }

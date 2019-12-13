@@ -23,7 +23,9 @@ public class Result<T> implements Serializable {
 	 * 返回处理消息
 	 */
 	private String message = "操作成功！";
-	/******登录相关提示信息****/
+	/******查询所有地址信息****/
+	public static final  String ADDRESS_LIST_MSG="查询所有地址成功";
+	public static final  String ADDRESS_LIST_ERROR_MSG="查询所有地址失败";
 
 	/*****公共操作结果信息*****/
 	public static final  String COMM_ACTION_MSG = "操作成功";

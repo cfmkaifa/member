@@ -1,17 +1,8 @@
 package org.forbes.dal.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.forbes.dal.entity.MemberAddress;
 
-public interface MemberAddressMapper {
-    int deleteByPrimaryKey(Long id);
+public interface MemberAddressMapper extends BaseMapper<MemberAddress> {
 
-    int insert(MemberAddress record);
-
-    int insertSelective(MemberAddress record);
-
-    MemberAddress selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(MemberAddress record);
-
-    int updateByPrimaryKey(MemberAddress record);
 }
