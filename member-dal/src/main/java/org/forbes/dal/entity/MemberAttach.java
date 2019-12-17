@@ -1,12 +1,19 @@
 package org.forbes.dal.entity;
 
 import java.util.Date;
+
+import com.baomidou.mybatisplus.annotation.TableName;
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * Table: f_member_attach
  */
 @Data
+@ApiModel(description="会员附件")
+@EqualsAndHashCode(callSuper = false)
+@TableName("f_member_attach")
 public class MemberAttach extends BaseEntity {
     /**
      * id

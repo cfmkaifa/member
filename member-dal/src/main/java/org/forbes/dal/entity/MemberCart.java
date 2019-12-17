@@ -2,12 +2,19 @@ package org.forbes.dal.entity;
 
 import java.math.BigDecimal;
 import java.util.Date;
+
+import com.baomidou.mybatisplus.annotation.TableName;
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * Table: f_member_cart
  */
 @Data
+@ApiModel(description="购物车")
+@EqualsAndHashCode(callSuper = false)
+@TableName("f_member_cart")
 public class MemberCart extends BaseEntity {
     /**
      * id

@@ -1,18 +1,21 @@
 package org.forbes.dal.entity;
 
+import lombok.Data;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.validation.constraints.NotNull;
+
+
 import com.alibaba.fastjson.annotation.JSONField;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.Data;
 import org.forbes.comm.constant.UpdateValid;
 
-import javax.validation.constraints.NotNull;
-import java.io.Serializable;
-import java.util.Date;
-
 @Data
-public class BaseEntity implements Serializable  {
+public class BaseEntity implements Serializable {
 
 	private static final long serialVersionUID = -5526949198055162338L;
 
