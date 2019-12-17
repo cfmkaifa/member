@@ -31,6 +31,22 @@ public class Result<T> implements Serializable {
 	public static final  String COMM_ACTION_MSG = "操作成功";
 	public static final  String COMM_ACTION_ERROR_MSG = "操作失败";
 
+	/*****会员登录*****/
+	public static final  String LOGIN_MSG = "会员登录成功";
+	public static final  String LOGIN_MSG_ERROR = "会员登录失败";
+
+	/*****会员注册*****/
+	public static final  String REGIST_MSG = "会员注册成功";
+	public static final  String REGIST_MSG_ERROR = "会员注册失败";
+
+	/*****会员详情*****/
+	public static final  String MEMBER_MSG = "查看会员详情成功";
+	public static final  String MEMBER_MSG_ERROR = "查看会员详情失败";
+
+	/*****会员修改*****/
+	public static final  String UPD_MEMBER_MSG = "会员修改成功";
+	public static final  String UPD_MEMBER_MSG_ERROR = "会员修改失败";
+
 
 	/**
 	 * 返回代码
