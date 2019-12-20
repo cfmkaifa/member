@@ -24,152 +24,154 @@
     <result column="org_code" property="orgCode" jdbcType="VARCHAR" />
     <!-- 法人 -->
     <result column="legal_person" property="legalPerson" jdbcType="VARCHAR" />
+    <!-- 会员状态 -->
+    <result column="state" property="state" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     id, create_by, create_time, update_by, update_time, name, email, phone, fax, org_code, 
     legal_person
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
-    select 'false' as QUERYID,
-    <include refid="Base_Column_List" />
-    from f_member
-    where id = #{id,jdbcType=BIGINT}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete from f_member
-    where id = #{id,jdbcType=BIGINT}
-  </delete>
-  <insert id="insert" >
-    insert into f_member (id, create_by, create_time, 
-      update_by, update_time, name, 
-      email, phone, fax, 
-      org_code, legal_person)
-    values (#{id,jdbcType=BIGINT}, #{createBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateBy,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{name,jdbcType=VARCHAR}, 
-      #{email,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{fax,jdbcType=VARCHAR}, 
-      #{orgCode,jdbcType=VARCHAR}, #{legalPerson,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" >
-    insert into f_member
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
-      <if test="createBy != null" >
-        create_by,
-      </if>
-      <if test="createTime != null" >
-        create_time,
-      </if>
-      <if test="updateBy != null" >
-        update_by,
-      </if>
-      <if test="updateTime != null" >
-        update_time,
-      </if>
-      <if test="name != null" >
-        name,
-      </if>
-      <if test="email != null" >
-        email,
-      </if>
-      <if test="phone != null" >
-        phone,
-      </if>
-      <if test="fax != null" >
-        fax,
-      </if>
-      <if test="orgCode != null" >
-        org_code,
-      </if>
-      <if test="legalPerson != null" >
-        legal_person,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=BIGINT},
-      </if>
-      <if test="createBy != null" >
-        #{createBy,jdbcType=VARCHAR},
-      </if>
-      <if test="createTime != null" >
-        #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateBy != null" >
-        #{updateBy,jdbcType=VARCHAR},
-      </if>
-      <if test="updateTime != null" >
-        #{updateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="name != null" >
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="email != null" >
-        #{email,jdbcType=VARCHAR},
-      </if>
-      <if test="phone != null" >
-        #{phone,jdbcType=VARCHAR},
-      </if>
-      <if test="fax != null" >
-        #{fax,jdbcType=VARCHAR},
-      </if>
-      <if test="orgCode != null" >
-        #{orgCode,jdbcType=VARCHAR},
-      </if>
-      <if test="legalPerson != null" >
-        #{legalPerson,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" >
-    update f_member
-    <set >
-      <if test="createBy != null" >
-        create_by = #{createBy,jdbcType=VARCHAR},
-      </if>
-      <if test="createTime != null" >
-        create_time = #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateBy != null" >
-        update_by = #{updateBy,jdbcType=VARCHAR},
-      </if>
-      <if test="updateTime != null" >
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="name != null" >
-        name = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="email != null" >
-        email = #{email,jdbcType=VARCHAR},
-      </if>
-      <if test="phone != null" >
-        phone = #{phone,jdbcType=VARCHAR},
-      </if>
-      <if test="fax != null" >
-        fax = #{fax,jdbcType=VARCHAR},
-      </if>
-      <if test="orgCode != null" >
-        org_code = #{orgCode,jdbcType=VARCHAR},
-      </if>
-      <if test="legalPerson != null" >
-        legal_person = #{legalPerson,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where id = #{id,jdbcType=BIGINT}
-  </update>
-  <update id="updateByPrimaryKey" >
-    update f_member
-    set create_by = #{createBy,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_by = #{updateBy,jdbcType=VARCHAR},
-      update_time = #{updateTime,jdbcType=TIMESTAMP},
-      name = #{name,jdbcType=VARCHAR},
-      email = #{email,jdbcType=VARCHAR},
-      phone = #{phone,jdbcType=VARCHAR},
-      fax = #{fax,jdbcType=VARCHAR},
-      org_code = #{orgCode,jdbcType=VARCHAR},
-      legal_person = #{legalPerson,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=BIGINT}
-  </update>
+  <!--<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >-->
+    <!--select 'false' as QUERYID,-->
+    <!--<include refid="Base_Column_List" />-->
+    <!--from f_member-->
+    <!--where id = #{id,jdbcType=BIGINT}-->
+  <!--</select>-->
+  <!--<delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >-->
+    <!--delete from f_member-->
+    <!--where id = #{id,jdbcType=BIGINT}-->
+  <!--</delete>-->
+  <!--<insert id="insert" >-->
+    <!--insert into f_member (id, create_by, create_time, -->
+      <!--update_by, update_time, name, -->
+      <!--email, phone, fax, -->
+      <!--org_code, legal_person)-->
+    <!--values (#{id,jdbcType=BIGINT}, #{createBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, -->
+      <!--#{updateBy,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{name,jdbcType=VARCHAR}, -->
+      <!--#{email,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{fax,jdbcType=VARCHAR}, -->
+      <!--#{orgCode,jdbcType=VARCHAR}, #{legalPerson,jdbcType=VARCHAR})-->
+  <!--</insert>-->
+  <!--<insert id="insertSelective" >-->
+    <!--insert into f_member-->
+    <!--<trim prefix="(" suffix=")" suffixOverrides="," >-->
+      <!--<if test="id != null" >-->
+        <!--id,-->
+      <!--</if>-->
+      <!--<if test="createBy != null" >-->
+        <!--create_by,-->
+      <!--</if>-->
+      <!--<if test="createTime != null" >-->
+        <!--create_time,-->
+      <!--</if>-->
+      <!--<if test="updateBy != null" >-->
+        <!--update_by,-->
+      <!--</if>-->
+      <!--<if test="updateTime != null" >-->
+        <!--update_time,-->
+      <!--</if>-->
+      <!--<if test="name != null" >-->
+        <!--name,-->
+      <!--</if>-->
+      <!--<if test="email != null" >-->
+        <!--email,-->
+      <!--</if>-->
+      <!--<if test="phone != null" >-->
+        <!--phone,-->
+      <!--</if>-->
+      <!--<if test="fax != null" >-->
+        <!--fax,-->
+      <!--</if>-->
+      <!--<if test="orgCode != null" >-->
+        <!--org_code,-->
+      <!--</if>-->
+      <!--<if test="legalPerson != null" >-->
+        <!--legal_person,-->
+      <!--</if>-->
+    <!--</trim>-->
+    <!--<trim prefix="values (" suffix=")" suffixOverrides="," >-->
+      <!--<if test="id != null" >-->
+        <!--#{id,jdbcType=BIGINT},-->
+      <!--</if>-->
+      <!--<if test="createBy != null" >-->
+        <!--#{createBy,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="createTime != null" >-->
+        <!--#{createTime,jdbcType=TIMESTAMP},-->
+      <!--</if>-->
+      <!--<if test="updateBy != null" >-->
+        <!--#{updateBy,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="updateTime != null" >-->
+        <!--#{updateTime,jdbcType=TIMESTAMP},-->
+      <!--</if>-->
+      <!--<if test="name != null" >-->
+        <!--#{name,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="email != null" >-->
+        <!--#{email,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="phone != null" >-->
+        <!--#{phone,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="fax != null" >-->
+        <!--#{fax,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="orgCode != null" >-->
+        <!--#{orgCode,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="legalPerson != null" >-->
+        <!--#{legalPerson,jdbcType=VARCHAR},-->
+      <!--</if>-->
+    <!--</trim>-->
+  <!--</insert>-->
+  <!--<update id="updateByPrimaryKeySelective" >-->
+    <!--update f_member-->
+    <!--<set >-->
+      <!--<if test="createBy != null" >-->
+        <!--create_by = #{createBy,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="createTime != null" >-->
+        <!--create_time = #{createTime,jdbcType=TIMESTAMP},-->
+      <!--</if>-->
+      <!--<if test="updateBy != null" >-->
+        <!--update_by = #{updateBy,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="updateTime != null" >-->
+        <!--update_time = #{updateTime,jdbcType=TIMESTAMP},-->
+      <!--</if>-->
+      <!--<if test="name != null" >-->
+        <!--name = #{name,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="email != null" >-->
+        <!--email = #{email,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="phone != null" >-->
+        <!--phone = #{phone,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="fax != null" >-->
+        <!--fax = #{fax,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="orgCode != null" >-->
+        <!--org_code = #{orgCode,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="legalPerson != null" >-->
+        <!--legal_person = #{legalPerson,jdbcType=VARCHAR},-->
+      <!--</if>-->
+    <!--</set>-->
+    <!--where id = #{id,jdbcType=BIGINT}-->
+  <!--</update>-->
+  <!--<update id="updateByPrimaryKey" >-->
+    <!--update f_member-->
+    <!--set create_by = #{createBy,jdbcType=VARCHAR},-->
+      <!--create_time = #{createTime,jdbcType=TIMESTAMP},-->
+      <!--update_by = #{updateBy,jdbcType=VARCHAR},-->
+      <!--update_time = #{updateTime,jdbcType=TIMESTAMP},-->
+      <!--name = #{name,jdbcType=VARCHAR},-->
+      <!--email = #{email,jdbcType=VARCHAR},-->
+      <!--phone = #{phone,jdbcType=VARCHAR},-->
+      <!--fax = #{fax,jdbcType=VARCHAR},-->
+      <!--org_code = #{orgCode,jdbcType=VARCHAR},-->
+      <!--legal_person = #{legalPerson,jdbcType=VARCHAR}-->
+    <!--where id = #{id,jdbcType=BIGINT}-->
+  <!--</update>-->
 </mapper>

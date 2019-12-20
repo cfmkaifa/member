@@ -43,6 +43,10 @@ public class Result<T> implements Serializable {
 	public static final  String MEMBER_MSG = "查看会员详情成功";
 	public static final  String MEMBER_MSG_ERROR = "查看会员详情失败";
 
+	/*****多条件查询会员集合*****/
+	public static final  String SELECT_LIST_MEMBER_AND_ROLE_MSG = "多条件查询会员成功";
+	public static final  String SELECT_LIST_MEMBER_AND_ROLE_ERROR_MSG = "多条件查询会员失败";
+
 	/*****会员修改*****/
 	public static final  String UPD_MEMBER_MSG = "会员修改成功";
 	public static final  String UPD_MEMBER_MSG_ERROR = "会员修改失败";

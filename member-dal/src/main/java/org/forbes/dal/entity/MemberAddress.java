@@ -25,6 +25,7 @@ public class MemberAddress extends BaseEntity {
      * Column:    member_id
      * Nullable:  true
      */
+    @ApiModelProperty("会员id")
     private Long memberId;
 
     /**
@@ -75,6 +76,7 @@ public class MemberAddress extends BaseEntity {
      * Column:    zip_code
      * Nullable:  true
      */
+    @ApiModelProperty("邮编")
     private String zipCode;
 
     /**
@@ -83,7 +85,7 @@ public class MemberAddress extends BaseEntity {
      * Column:    phone
      * Nullable:  true
      */
-    @ApiModelProperty("电话")
+    @ApiModelProperty(value = "电话",required = true)
     @Pattern(regexp ="^[1][3,4,5,7,8][0-9]{9}$")
     private String phone;
 
@@ -93,5 +95,6 @@ public class MemberAddress extends BaseEntity {
      * Column:    is_default
      * Nullable:  true
      */
+    @ApiModelProperty("0-否,1-是")
     private String isDefault;
 }

@@ -3,9 +3,56 @@
 <mapper namespace="org.forbes.dal.mapper.MemberAddressExtMapper" >
   <resultMap id="BaseResultMap" type="org.forbes.dal.entity.MemberAddress" extends="org.forbes.dal.mapper.MemberAddressMapper.BaseResultMap">
   </resultMap>
+  <resultMap id="memberResultMap" type="org.forbes.comm.vo.MemberVo">
+    <!-- 主键id -->
+    <id column="mid" property="mid" jdbcType="BIGINT" />
+    <!-- 姓名 -->
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <!-- 邮箱 -->
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <!-- 联系方式 -->
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <!-- 传真 -->
+    <result column="fax" property="fax" jdbcType="VARCHAR" />
+    <!-- 机构代码 -->
+    <result column="org_code" property="orgCode" jdbcType="VARCHAR" />
+    <!-- 法人 -->
+    <result column="legal_person" property="legalPerson" jdbcType="VARCHAR" />
+    <collection property="memberAttachVos" resultMap="memberAttachResultMap"/>
+  </resultMap>
   <sql id="Base_Column_List" >
     <include refid="org.forbes.dal.mapper.MemberAddressMapper.Base_Column_List" />
   </sql>
 
+  <!--多条件查询会员+分页-->
+  <select id="pageMember" parameterType="org.forbes.comm.model.PageMemberDto" resultMap="memberResultMap">
+    SELECT  fm.id AS mid,
+            fm.name,
+            fm.email,
+            fm.phone,
+            fm.fax,
+            fm.org_code,
+            fm.legal_person,
+            fm.user_id,
+            fm.state,
+            fma.id,
+            fma.data_id,
+            fma.orders_sort,
+            fma.suffix,
+            fma.cn_name,
+            fma.en_name,
+            fma.file_path,
+            fma.type,
+            fma.data_type
+    FROM f_member AS fm LEFT JOIN f_member_attach AS fma ON fm.id=fma.data_id
+    <where>
+      <if test="pageMemberDto.state != null and pageMemberDto.state != '' and pageMemberDto.state != 'null'">
+        AND fm.state=#{pageMemberDto.state,jdbcType=VARCHAR}
+      </if>
+      <if test="pageMemberDto.name != null and pageMemberDto.name != '' and pageMemberDto.name != 'null'">
+        AND fm.name LIKE concat('%',#{pageMemberDto.name,jdbcType=VARCHAR},'%')
+      </if>
+    </where>
+  </select>
 
 </mapper>

@@ -102,4 +102,12 @@ public class Member extends BaseEntity {
      * Nullable:  true
      */
     private String legalPerson;
+
+    /**
+     * 会员状态
+     * Table:     f_member
+     * Column:    state
+     * Nullable:  true
+     */
+    private String state;
 }

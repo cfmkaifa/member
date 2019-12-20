@@ -71,6 +71,15 @@ public class MemberVo implements Serializable {
     @ApiModelProperty(value = "法人",required = true)
     private String legalPerson;
 
+    /**
+     * 会员状态
+     * Table:     f_member
+     * Column:    state
+     * Nullable:  true
+     */
+    @ApiModelProperty(value = "会员状态")
+    private String state;
+
     @ApiModelProperty(value = "会员附件集合")
     private List<MemberAttachVo> memberAttachVos;
 
