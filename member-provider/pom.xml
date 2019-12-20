@@ -36,5 +36,15 @@
       <artifactId>member-biz</artifactId>
       <version>0.0.1-SNAPSHOT</version>
     </dependency>
+      <dependency>
+          <groupId>org.forbes</groupId>
+          <artifactId>forbes-member</artifactId>
+          <version>0.0.1-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+          <groupId>org.forbes</groupId>
+          <artifactId>member-client</artifactId>
+          <version>0.0.1-SNAPSHOT</version>
+      </dependency>
   </dependencies>
 </project>

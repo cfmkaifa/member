@@ -13,7 +13,6 @@ import org.forbes.dal.entity.Member;
  **/
 public interface IMemberService extends IService<Member> {
 
-
     /***
      * 方法概述: 根据会员id查看会员详情
      * @param 

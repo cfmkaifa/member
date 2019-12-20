@@ -2,12 +2,15 @@ package org.forbes.biz.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import lombok.extern.slf4j.Slf4j;
 import org.forbes.biz.IMemberService;
 import org.forbes.comm.constant.DataColumnConstant;
 import org.forbes.comm.model.MemberAttachDto;
 import org.forbes.comm.model.MemberDto;
 import org.forbes.comm.utils.ConvertUtils;
+import org.forbes.comm.vo.LoginVo;
 import org.forbes.comm.vo.MemberVo;
+import org.forbes.comm.vo.Result;
 import org.forbes.dal.entity.Member;
 import org.forbes.dal.entity.MemberAttach;
 import org.forbes.dal.mapper.MemberAttachMapper;
@@ -27,6 +30,7 @@ import java.util.List;
  * @Date 2019/12/17 13:07
  * @Version 1.0
  **/
+@Slf4j
 @Service
 public class MemberServiceImpl extends ServiceImpl<MemberMapper,Member> implements IMemberService {
 
@@ -36,6 +40,7 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper,Member> implemen
 
     @Autowired
     private MemberExtMapper memberExtMapper;
+
 
     /***
      * 方法概述: 根据会员id查看会员详情

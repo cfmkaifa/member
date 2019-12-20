@@ -21,11 +21,6 @@
       <artifactId>member-comm</artifactId>
       <version>0.0.1-SNAPSHOT</version>
     </dependency>
-      <dependency>
-          <groupId>org.forbes</groupId>
-          <artifactId>member-comm</artifactId>
-          <version>0.0.1-SNAPSHOT</version>
-      </dependency>
   </dependencies>
   <build>
     <plugins>

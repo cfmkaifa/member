@@ -1,6 +1,5 @@
 package org.forbes.comm.model;
 
-import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -28,9 +27,21 @@ public class MemberDto implements Serializable{
 
 
     /**
+     * username
+     */
+    @ApiModelProperty(value = "用户名",required = true)
+    private String username;
+
+    /**
+     * 密码
+     */
+    @ApiModelProperty(value = "密码",required = true)
+    private String password;
+
+    /**
      * id
      */
-    @ApiModelProperty(value = "id")
+    @ApiModelProperty(value = "id",required = true)
     private String id;
 
     /**
@@ -45,6 +56,7 @@ public class MemberDto implements Serializable{
     @ApiModelProperty("邮箱")
     @Pattern(regexp = "^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$")
     private String email;
+
 
     /**
      * 联系方式
