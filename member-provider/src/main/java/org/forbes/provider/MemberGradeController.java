@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.forbes.biz.IMemberGradeService;
 import org.forbes.comm.constant.CommonConstant;
 import org.forbes.comm.enums.BizResultEnum;
+import org.forbes.comm.enums.MemberGradeEnum;
 import org.forbes.comm.exception.ForbesException;
 import org.forbes.comm.model.BasePageDto;
 import org.forbes.comm.model.MemberDto;
@@ -25,10 +26,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/member-grade")
-@Api(tags={"会员等级"})
+@Api(tags = {"会员等级"})
 @Slf4j
 public class MemberGradeController {
 
@@ -37,7 +40,7 @@ public class MemberGradeController {
     IMemberGradeService memberGradeService;
 
     /***
-     * page方法概述:
+     * page方法概述:获取分页会员等级列表
      * @param  pageDto
      * @return MemberGradeVo
      * @创建人 niehy(Frunk)
@@ -51,15 +54,61 @@ public class MemberGradeController {
             @ApiResponse(code = 500, message = Result.MEMBER_GRADE_ERROR_MSG),
             @ApiResponse(code = 200, message = Result.MEMBER_GRADE_MSG)
     })
-    public Result<IPage<MemberGradeVo>> page(BasePageDto basePageDto, MemberGradePageDto pageDto){
+    public Result<IPage<MemberGradeVo>> page(BasePageDto basePageDto, MemberGradePageDto pageDto) {
         log.debug("传入参数为:" + JSON.toJSONString(pageDto));
         Result<IPage<MemberGradeVo>> result = new Result<>();
-        IPage<MemberGradeVo> page = new Page<MemberGradeVo>(basePageDto.getPageNo(),basePageDto.getPageSize());
-        memberGradeService.memberGradePage(page,pageDto);
+        IPage<MemberGradeVo> page = new Page<MemberGradeVo>(basePageDto.getPageNo(), basePageDto.getPageSize());
+        memberGradeService.memberGradePage(page, pageDto);
         log.debug("返回参数为:" + JSON.toJSONString(result.getResult()));
         return result;
     }
 
+
+    /***
+     * getGradeById方法概述:通过id查询等级详情
+     * @param  id
+     * @return MemberGradeVo
+     * @创建人 niehy(Frunk)
+     * @创建时间 2019/12/27
+     * @修改人 (修改了该文件，请填上修改人的名字)
+     * @修改日期 (请填上修改该文件时的日期)
+     */
+    @RequestMapping(value = "/get-by-id/{id}", method = RequestMethod.GET)
+    @ApiOperation("通过id查询等级详情")
+    @ApiResponses(value = {
+            @ApiResponse(code = 500, message = Result.MEMBER_GRADE_ERROR_MSG),
+            @ApiResponse(code = 200, message = Result.MEMBER_GRADE_MSG)
+    })
+    public Result<MemberGrade> getGradeById(@PathVariable String id) {
+        log.debug("传入参数为:" + JSON.toJSONString(id));
+        Result<MemberGrade> result = new Result<>();
+        MemberGrade grade = memberGradeService.getById(id);
+        result.setResult(grade);
+        log.debug("返回参数为:" + JSON.toJSONString(result.getResult()));
+        return result;
+    }
+
+
+    /***
+     * getGradeEnum方法概述:获取会员等级枚举
+     * @return MemberGradeVo
+     * @创建人 niehy(Frunk)
+     * @创建时间 2019/12/27
+     * @修改人 (修改了该文件，请填上修改人的名字)
+     * @修改日期 (请填上修改该文件时的日期)
+     */
+    @RequestMapping(value = "/get-grade-enum}", method = RequestMethod.GET)
+    @ApiOperation("获取会员等级枚举")
+    @ApiResponses(value = {
+            @ApiResponse(code = 500, message = Result.MEMBER_GRADE_ERROR_MSG),
+            @ApiResponse(code = 200, message = Result.MEMBER_GRADE_MSG)
+    })
+    public Result<List<Map<String, String>>> getGradeEnum() {
+        Result<List<Map<String, String>>> result = new Result<>();
+        List<Map<String, String>> maps = MemberGradeEnum.receMemberGrade();
+        result.setResult(maps);
+        return result;
+    }
 
 
     /***
@@ -77,10 +126,10 @@ public class MemberGradeController {
             @ApiResponse(code = 500, message = Result.ADD_MEMBER_GRADE_ERROR_MSG),
             @ApiResponse(code = 200, message = Result.ADD_MEMBER_GRADE_MSG)
     })
-    public Result<MemberGrade> addMemberGrade(@RequestBody MemberGradeDto memberGradeDto){
+    public Result<MemberGrade> addMemberGrade(@RequestBody MemberGradeDto memberGradeDto) {
         log.debug("传入参数为:" + JSON.toJSONString(memberGradeDto));
         Result<MemberGrade> result = new Result<>();
-        if(ConvertUtils.isEmpty(memberGradeDto)){
+        if (ConvertUtils.isEmpty(memberGradeDto)) {
             result.setBizCode(BizResultEnum.ENTITY_EMPTY.getBizCode());
             result.setMessage(BizResultEnum.ENTITY_EMPTY.getBizMessage());
             return result;
@@ -114,15 +163,15 @@ public class MemberGradeController {
             @ApiResponse(code = 500, message = Result.UPDATE_MEMBER_GRADE_ERROR_MSG),
             @ApiResponse(code = 200, message = Result.UPDATE_MEMBER_GRADE_MSG)
     })
-    public Result<MemberGrade> updateMemberGrade(@RequestBody MemberGradeDto memberGradeDto){
+    public Result<MemberGrade> updateMemberGrade(@RequestBody MemberGradeDto memberGradeDto) {
         log.debug("传入参数为:" + JSON.toJSONString(memberGradeDto));
         Result<MemberGrade> result = new Result<>();
-        if(ConvertUtils.isEmpty(memberGradeDto)){
+        if (ConvertUtils.isEmpty(memberGradeDto)) {
             result.setBizCode(BizResultEnum.ENTITY_EMPTY.getBizCode());
             result.setMessage(BizResultEnum.ENTITY_EMPTY.getBizMessage());
             return result;
         }
-        if(ConvertUtils.isEmpty(memberGradeDto.getId())){
+        if (ConvertUtils.isEmpty(memberGradeDto.getId())) {
             result.setBizCode(BizResultEnum.EMPTY.getBizCode());
             result.setMessage(BizResultEnum.EMPTY.getBizMessage());
             return result;
@@ -156,10 +205,10 @@ public class MemberGradeController {
             @ApiResponse(code = 500, message = Result.UPDATE_MEMBER_GRADE_ERROR_MSG),
             @ApiResponse(code = 200, message = Result.UPDATE_MEMBER_GRADE_MSG)
     })
-    public Result<MemberGradeVo> deleteMemberGrade(@PathVariable String id){
+    public Result<MemberGradeVo> deleteMemberGrade(@PathVariable String id) {
         log.debug("传入参数为:" + JSON.toJSONString(id));
         Result<MemberGradeVo> result = new Result<>();
-        if(ConvertUtils.isEmpty(id)){
+        if (ConvertUtils.isEmpty(id)) {
             result.setBizCode(BizResultEnum.EMPTY.getBizCode());
             result.setMessage(BizResultEnum.EMPTY.getBizMessage());
             return result;
@@ -183,14 +232,14 @@ public class MemberGradeController {
             @ApiResponse(code = 500, message = Result.UPDATE_MEMBER_GRADE_ERROR_MSG),
             @ApiResponse(code = 200, message = Result.UPDATE_MEMBER_GRADE_MSG)
     })
-    public Result<MemberGradeVo> deleteBatch(@RequestParam("ids") String ids){
+    public Result<MemberGradeVo> deleteBatch(@RequestParam("ids") String ids) {
         log.debug("传入参数为:" + JSON.toJSONString(ids));
         Result<MemberGradeVo> result = new Result<>();
         try {
             memberGradeService.removeByIds(Arrays.asList(ids.split(CommonConstant.SEPARATOR)));
         } catch (ForbesException e) {
-           result.setBizCode( e.getErrorCode());
-           result.setMessage( e.getErrorMsg());
+            result.setBizCode(e.getErrorCode());
+            result.setMessage(e.getErrorMsg());
         }
         return result;
     }

@@ -16,45 +16,7 @@ import lombok.EqualsAndHashCode;
 @TableName("f_member_attach")
 public class MemberAttach extends BaseEntity {
     private static final long serialVersionUID = -5916701445037160192L;
-    /**
-     * id
-     * Table:     f_member_attach
-     * Column:    id
-     * Nullable:  false
-     */
-    private Long id;
 
-    /**
-     * 创建人
-     * Table:     f_member_attach
-     * Column:    create_by
-     * Nullable:  true
-     */
-    private String createBy;
-
-    /**
-     * 创建时间
-     * Table:     f_member_attach
-     * Column:    create_time
-     * Nullable:  true
-     */
-    private Date createTime;
-
-    /**
-     * 更新人
-     * Table:     f_member_attach
-     * Column:    update_by
-     * Nullable:  true
-     */
-    private String updateBy;
-
-    /**
-     * 更新时间
-     * Table:     f_member_attach
-     * Column:    update_time
-     * Nullable:  true
-     */
-    private Date updateTime;
 
     /**
      * 数据id
