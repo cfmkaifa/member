@@ -17,7 +17,7 @@ import javax.validation.constraints.Pattern;
 @TableName("f_member_address")
 public class MemberAddress extends BaseEntity {
 
-    private static final long serialVersionUID = -2425478923407804604L;
+    private static final long serialVersionUID = -2804051929786433527L;
 
     /**
      * 会员id

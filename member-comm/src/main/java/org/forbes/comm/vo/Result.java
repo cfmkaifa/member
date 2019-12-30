@@ -46,9 +46,14 @@ public class Result<T> implements Serializable {
 	/*****会员修改*****/
 	public static final  String UPD_MEMBER_MSG = "会员修改成功";
 	public static final  String UPD_MEMBER_MSG_ERROR = "会员修改失败";
+
 	/*****会员分页查询*****/
 	public static final  String PAGE_MSG = "会员分页查询成功";
 	public static final  String PAGE_MSG_ERROR = "会员分页查询失败";
+
+	/*****会员等级*****/
+	public static final  String MEMBER_GRADE_MSG = "会员等级查询成功";
+	public static final  String MEMBER_GRADE_ERROR_MSG = "会员等级查询失败";
 
 
 	/**

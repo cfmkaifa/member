@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.forbes.dal.mapper.ext.MemberGradeExtMapper">
+    <resultMap id="BaseResultMap" type="org.forbes.dal.entity.MemberGrade"
+               extends="org.forbes.dal.mapper.MemberGradeMapper.BaseResultMap">
+    </resultMap>
+    <sql id="Base_Column_List">
+        <include refid="org.forbes.dal.mapper.MemberGradeMapper.Base_Column_List"/>
+    </sql>
+
+    <select id="memberGradePage" resultType="org.forbes.comm.vo.MemberGradeVo">
+        select
+        mg.grade_name,
+        mg.user_id,
+        mg.grade,
+        mg.code,
+        m.name
+        FROM f_member_grade mg JOIN f_member m WHERE mg.user_id = m.id
+        <where>
+            <if test="pageDto.name != null and pageDto.name != '' and pageDto.name != 'null'">
+                m.name = #{name}
+            </if>
+        </where>
+    </select>
+</mapper>

@@ -65,7 +65,7 @@ public class MemberController {
         Result<Member> result=new Result<Member>();
         String username=sysLoginModel.getUsername();
         Result<LoginVo> sysUser=sysUserService.login(sysLoginModel);
-        if(ConvertUtils.isEmpty(sysUser)){//根据user_id 验证用户是否存在，跨库
+        if(ConvertUtils.isEmpty(sysUser)){ //根据user_id 验证用户是否存在，跨库
             result.setBizCode(BizResultEnum.USER_EXIST.getBizCode());
             result.setMessage(BizResultEnum.USER_EXIST.getBizMessage());
             return result;

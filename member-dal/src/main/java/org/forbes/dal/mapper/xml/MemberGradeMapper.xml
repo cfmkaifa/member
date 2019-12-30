@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.forbes.dal.mapper.MemberGradeMapper">
+    <resultMap id="BaseResultMap" type="org.forbes.dal.entity.MemberGrade">
+        <!-- 主键id -->
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <!-- 创建人 -->
+        <result column="create_by" property="createBy" jdbcType="VARCHAR"/>
+        <!-- 创建时间 -->
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <!-- 更新人 -->
+        <result column="update_by" property="updateBy" jdbcType="VARCHAR"/>
+        <!-- 更新时间 -->
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+        <!-- 等级名称 -->
+        <result column="grade_name" property="gradeName" jdbcType="VARCHAR"/>
+        <!-- 用户id -->
+        <result column="user_id" property="userId" jdbcType="BIGINT"/>
+        <!-- 等级 -->
+        <result column="grade" property="grade" jdbcType="VARCHAR"/>
+        <!-- 会员等级编码 -->
+        <result column="code" property="code" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id,create_by,create_time,update_by,update_time,grade_name,user_id,grade,code
+  </sql>
+
+</mapper>

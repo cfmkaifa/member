@@ -16,6 +16,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 @TableName("f_member_cart_item")
 public class MemberCartItem extends BaseEntity {
+    private static final long serialVersionUID = 2333767483134544316L;
     /**
      * id
      * Table:     f_member_cart_item

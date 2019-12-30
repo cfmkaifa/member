@@ -15,6 +15,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 @TableName("f_member_attach")
 public class MemberAttach extends BaseEntity {
+    private static final long serialVersionUID = -5916701445037160192L;
     /**
      * id
      * Table:     f_member_attach
