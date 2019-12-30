@@ -2,7 +2,6 @@ package org.forbes.biz;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
-import org.forbes.comm.model.BasePageDto;
 import org.forbes.comm.model.MemberGradePageDto;
 import org.forbes.comm.vo.MemberGradeVo;
 import org.forbes.dal.entity.MemberGrade;
@@ -19,4 +18,7 @@ public interface IMemberGradeService extends IService<MemberGrade>{
      * @修改日期 (请填上修改该文件时的日期)
      */
     IPage<MemberGradeVo> memberGradePage(IPage<MemberGradeVo> page, MemberGradePageDto pageDto);
+
+
+
 }

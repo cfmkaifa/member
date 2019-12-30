@@ -28,6 +28,7 @@ public class BaseEntity implements Serializable {
     @JSONField(format="yyyy-MM-dd")
 	@JsonFormat(pattern="yyyy-MM-dd")
     @NotNull(message="主键ID为空",groups=UpdateValid.class)
+    @ApiModelProperty(value = "id,添加不传值",example = "0")
     private Long id;
     
     
@@ -40,7 +41,7 @@ public class BaseEntity implements Serializable {
     /**
      * 创建时间
      */
-    @ApiModelProperty(value = "创建时间",example = "0")
+    @ApiModelProperty(value = "创建时间")
     private Date createTime;
 
     /**
@@ -52,6 +53,6 @@ public class BaseEntity implements Serializable {
     /**
      * 更新时间
      */
-    @ApiModelProperty(value = "更新时间",example = "0")
+    @ApiModelProperty(value = "更新时间")
     private Date updateTime;
 }

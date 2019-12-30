@@ -11,11 +11,11 @@
     <select id="memberGradePage" resultType="org.forbes.comm.vo.MemberGradeVo">
         select
         mg.grade_name,
-        mg.user_id,
         mg.grade,
         mg.code,
+        mg.isis_default,
         m.name
-        FROM f_member_grade mg JOIN f_member m WHERE mg.user_id = m.id
+        FROM f_member_grade mg JOIN f_member m WHERE mg.id = m.grade_id
         <where>
             <if test="pageDto.name != null and pageDto.name != '' and pageDto.name != 'null'">
                 m.name = #{name}

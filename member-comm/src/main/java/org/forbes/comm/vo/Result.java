@@ -55,6 +55,15 @@ public class Result<T> implements Serializable {
 	public static final  String MEMBER_GRADE_MSG = "会员等级查询成功";
 	public static final  String MEMBER_GRADE_ERROR_MSG = "会员等级查询失败";
 
+	public static final  String ADD_MEMBER_GRADE_MSG = "会员等级添加成功";
+	public static final  String ADD_MEMBER_GRADE_ERROR_MSG = "会员等级添加失败";
+
+	public static final  String UPDATE_MEMBER_GRADE_MSG = "会员等级修改成功";
+	public static final  String UPDATE_MEMBER_GRADE_ERROR_MSG = "会员等级修改失败";
+
+	public static final  String DELETE_MEMBER_GRADE_MSG = "会员等级删除成功";
+	public static final  String DELETE_MEMBER_GRADE_ERROR_MSG = "会员等级删除失败";
+
 
 	/**
 	 * 返回代码

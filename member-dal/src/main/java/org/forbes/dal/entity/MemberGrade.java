@@ -6,6 +6,8 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.math.BigDecimal;
+
 
 /**
  * Table: f_member_grade
@@ -17,30 +19,25 @@ import lombok.EqualsAndHashCode;
 public class MemberGrade extends BaseEntity {
 
     private static final long serialVersionUID = -2147218125440652092L;
+
     /**
-     * 等级名称
+     * 会员等级名称
      * Table:     f_member_grade
      * Column:    grade_name
      * Nullable:  true
      */
-    @ApiModelProperty(value = "等级名称")
+    @ApiModelProperty(value = "会员等级名称",required = true)
     private String gradeName;
-    /**
-     * 用户id
-     * Table:     f_member_grade
-     * Column:    user_id
-     * Nullable:  true
-     */
-    @ApiModelProperty(value = "用户id")
-    private Long userId;
+
     /**
      * 等级
      * Table:     f_member_grade
      * Column:    grade
      * Nullable:  true
      */
-    @ApiModelProperty(value = "等级")
+    @ApiModelProperty(value = "等级",required = true)
     private String grade;
+
     /**
      * 会员等级编码
      * Table:     f_member_grade
@@ -49,6 +46,24 @@ public class MemberGrade extends BaseEntity {
      */
     @ApiModelProperty(value = "会员等级编码")
     private String code;
+
+    /**
+     * 是否默认
+     * Table:     f_member_grade
+     * Column:    is_default
+     * Nullable:  true
+     */
+    @ApiModelProperty(value = "是否默认0否1是")
+    private String isDefault;
+
+    /**
+     * 消费金额
+     * Table:     f_member_grade
+     * Column:    consumption_amount
+     * Nullable:  true
+     */
+    @ApiModelProperty(value = "消费金额",required = true,example = "0")
+    private BigDecimal consumptionAmount;
 
 
 }
