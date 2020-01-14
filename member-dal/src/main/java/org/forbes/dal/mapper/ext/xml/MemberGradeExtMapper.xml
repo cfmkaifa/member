@@ -10,10 +10,11 @@
 
     <select id="memberGradePage" resultType="org.forbes.comm.vo.MemberGradeVo">
         select
+        mg.id,
         mg.grade_name,
         mg.grade,
         mg.code,
-        mg.isis_default,
+        mg.is_default,
         m.name
         FROM f_member_grade mg JOIN f_member m WHERE mg.id = m.grade_id
         <where>
