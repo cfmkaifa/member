@@ -16,45 +16,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 @TableName("f_member_cart")
 public class MemberCart extends BaseEntity {
-    /**
-     * id
-     * Table:     f_member_cart
-     * Column:    id
-     * Nullable:  false
-     */
-    private Long id;
-
-    /**
-     * 创建人
-     * Table:     f_member_cart
-     * Column:    create_by
-     * Nullable:  true
-     */
-    private String createBy;
-
-    /**
-     * 创建时间
-     * Table:     f_member_cart
-     * Column:    create_time
-     * Nullable:  true
-     */
-    private Date createTime;
-
-    /**
-     * 更新人
-     * Table:     f_member_cart
-     * Column:    update_by
-     * Nullable:  true
-     */
-    private String updateBy;
-
-    /**
-     * 更新时间
-     * Table:     f_member_cart
-     * Column:    update_time
-     * Nullable:  true
-     */
-    private Date updateTime;
+    private static final long serialVersionUID = -6850494794270191277L;
 
     /**
      * 购物车key

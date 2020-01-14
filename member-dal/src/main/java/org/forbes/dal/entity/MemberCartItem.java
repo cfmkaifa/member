@@ -4,7 +4,9 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -16,45 +18,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 @TableName("f_member_cart_item")
 public class MemberCartItem extends BaseEntity {
-    /**
-     * id
-     * Table:     f_member_cart_item
-     * Column:    id
-     * Nullable:  false
-     */
-    private Long id;
-
-    /**
-     * 创建人
-     * Table:     f_member_cart_item
-     * Column:    create_by
-     * Nullable:  true
-     */
-    private String createBy;
-
-    /**
-     * 创建时间
-     * Table:     f_member_cart_item
-     * Column:    create_time
-     * Nullable:  true
-     */
-    private Date createTime;
-
-    /**
-     * 更新人
-     * Table:     f_member_cart_item
-     * Column:    update_by
-     * Nullable:  true
-     */
-    private String updateBy;
-
-    /**
-     * 更新时间
-     * Table:     f_member_cart_item
-     * Column:    update_time
-     * Nullable:  true
-     */
-    private Date updateTime;
+    private static final long serialVersionUID = 2333767483134544316L;
 
     /**
      * 购物车id
@@ -62,6 +26,7 @@ public class MemberCartItem extends BaseEntity {
      * Column:    cart_id
      * Nullable:  true
      */
+    @ApiModelProperty(value = "购物车id",example = "0")
     private Long cartId;
 
     /**
@@ -70,6 +35,7 @@ public class MemberCartItem extends BaseEntity {
      * Column:    merchant_id
      * Nullable:  true
      */
+    @ApiModelProperty(value = "商家id",example = "0")
     private Long merchantId;
 
     /**
@@ -78,6 +44,7 @@ public class MemberCartItem extends BaseEntity {
      * Column:    pro_id
      * Nullable:  true
      */
+    @ApiModelProperty(value = "商品id",example = "0")
     private Long proId;
 
     /**
@@ -86,6 +53,7 @@ public class MemberCartItem extends BaseEntity {
      * Column:    pro_sn
      * Nullable:  true
      */
+    @ApiModelProperty(value = "商品编码")
     private String proSn;
 
     /**
@@ -94,6 +62,7 @@ public class MemberCartItem extends BaseEntity {
      * Column:    pro_name
      * Nullable:  true
      */
+    @ApiModelProperty(value = "商品名称")
     private String proName;
 
     /**
@@ -102,6 +71,7 @@ public class MemberCartItem extends BaseEntity {
      * Column:    spec_id
      * Nullable:  true
      */
+    @ApiModelProperty(value = "规格id",example = "0")
     private Long specId;
 
     /**
@@ -110,6 +80,7 @@ public class MemberCartItem extends BaseEntity {
      * Column:    spec_sn
      * Nullable:  true
      */
+    @ApiModelProperty(value = "规格编码")
     private String specSn;
 
     /**
@@ -118,6 +89,7 @@ public class MemberCartItem extends BaseEntity {
      * Column:    price
      * Nullable:  true
      */
+    @ApiModelProperty(value = "单价",example = "0")
     private BigDecimal price;
 
     /**
@@ -125,6 +97,7 @@ public class MemberCartItem extends BaseEntity {
      * Column:    quantity
      * Nullable:  true
      */
+    @ApiModelProperty(value = "quantity",example = "0")
     private Integer quantity;
 
     /**
@@ -133,5 +106,6 @@ public class MemberCartItem extends BaseEntity {
      * Column:    total_amount
      * Nullable:  true
      */
+    @ApiModelProperty(value = "总价",example = "0")
     private BigDecimal totalAmount;
 }

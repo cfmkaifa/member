@@ -25,4 +25,8 @@ public interface CommonConstant {
     public static final String USER_NAME = "username";
     public static final String PROVILES_CODE = "spring.profiles.active";
     public static final String ACTIVE_CODE = "dev";
+
+
+    /****会员表****/
+    public static final String GRADE_ID = "grade_id";//会员等级id
 }

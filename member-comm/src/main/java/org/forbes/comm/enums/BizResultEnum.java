@@ -22,7 +22,10 @@ public enum BizResultEnum {
 	MEMBER_STATUS_NO_EXISTS("003001007","会员状态不存在","s%对应会员状态不存在"),
 
 	/*******地址(002)******/
-	ADRESS_STATUS_NO_EXISTS("003002001","地址状态不存在","%s对应地址状态不存在");
+	ADRESS_STATUS_NO_EXISTS("003002001","地址状态不存在","%s对应地址状态不存在"),
+
+	/*******地址(003)******/
+	USER_GRADE_IN_USE("003003001","改会员等级正在被使用中","%s对应改会员等级正在被使用中");
 
 
 

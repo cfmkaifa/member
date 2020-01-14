@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.forbes.dal.mapper.MemberGradeMapper">
+    <resultMap id="BaseResultMap" type="org.forbes.dal.entity.MemberGrade">
+        <!-- 主键id -->
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <!-- 创建人 -->
+        <result column="create_by" property="createBy" jdbcType="VARCHAR"/>
+        <!-- 创建时间 -->
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <!-- 更新人 -->
+        <result column="update_by" property="updateBy" jdbcType="VARCHAR"/>
+        <!-- 更新时间 -->
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+        <!-- 等级名称 -->
+        <result column="grade_name" property="gradeName" jdbcType="VARCHAR"/>
+        <!-- 等级 -->
+        <result column="grade" property="grade" jdbcType="VARCHAR"/>
+        <!-- 会员等级编码 -->
+        <result column="code" property="code" jdbcType="VARCHAR"/>
+        <!-- 是否默认 -->
+        <result column="is_default" property="isDefault" jdbcType="VARCHAR"/>
+        <!-- 消费金额 -->
+        <result column="consumption_amount" property="consumptionAmount" jdbcType="DECIMAL"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id,create_by,create_time,update_by,update_time,grade_name,grade,code,is_default,consumption_amount
+  </sql>
+
+</mapper>

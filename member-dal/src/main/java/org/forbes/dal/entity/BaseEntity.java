@@ -1,5 +1,6 @@
 package org.forbes.dal.entity;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -27,28 +28,31 @@ public class BaseEntity implements Serializable {
     @JSONField(format="yyyy-MM-dd")
 	@JsonFormat(pattern="yyyy-MM-dd")
     @NotNull(message="主键ID为空",groups=UpdateValid.class)
+    @ApiModelProperty(value = "id,添加不传值",example = "0")
     private Long id;
     
     
     /**
      * 创建人
      */
+    @ApiModelProperty(value = "创建人",example = "0")
     private String createBy;
 
     /**
      * 创建时间
      */
-    @JSONField(format="yyyy-MM-dd")
-	@JsonFormat(pattern="yyyy-MM-dd")
+    @ApiModelProperty(value = "创建时间")
     private Date createTime;
 
     /**
      * 更新人
      */
+    @ApiModelProperty(value = "更新人",example = "0")
     private String updateBy;
 
     /**
      * 更新时间
      */
+    @ApiModelProperty(value = "更新时间")
     private Date updateTime;
 }
